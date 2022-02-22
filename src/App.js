@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import React, {useState} from 'react'
+import Footer from './Components/Footer/Footer'
+import Body from './Components/Body/Body';
+import Header from './Components/Header/Header';
 import './App.css';
 
-function App() {
+
+export default function App() {
+
+  const [searchText, setSearchText] = useState('')
+  const [res, setRes] = useState({})
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header searchText = {searchText} res = {res.data} setRes = {setRes} setSearchText={setSearchText}/>
+      <div>
+         <Body searchText = {searchText} res = {res.data}/>
+      </div>
+      <div>
+          <Footer res = {res.data}/>
+      </div>
     </div>
   );
 }
-
-export default App;
